@@ -89,10 +89,14 @@ Alexander called this the "Mirror of the Self" test: which option makes you feel
 ```
 User provides:
 - Site information (address, lot boundaries, or upload survey)
+  - Import from GIS data, Google Maps, or other geospatial platforms
+  - Satellite/aerial imagery auto-parsed for lot features, topography, orientation
 - Basic program (3 bedrooms, 2 baths, ~2,000 SF)
 - Budget range
 - Style preferences (slider from vernacular to formal)
 - Inspiration images (optional)
+  - Upload photos of existing homes, interiors, or landscapes (vision AI extracts style cues)
+  - Link Pinterest boards, Houzz ideabooks, or Instagram collections for style analysis
 
 System generates initial site analysis and begins pattern sequence.
 ```
@@ -151,7 +155,8 @@ When design is complete:
 
 The system sequences design decisions according to Alexander's pattern language, ensuring each step builds meaningfully on the last.
 
-- 50-100 key patterns implemented initially
+- 50-100 key patterns implemented initially (home scale)
+- Neighborhood-scale patterns (#1–#94) available for multi-home and community-level design
 - Each pattern has a prompt template for AI generation
 - Patterns can be skipped or reordered by advanced users
 - Custom patterns can be added
@@ -214,7 +219,23 @@ Users can explore "what if" scenarios without committing:
 - **Bookmark:** Save interesting directions for later
 - **Backtrack:** Return to any previous decision point
 
-### 7. Architectural Output
+### 7. Geospatial & Visual Inputs
+
+Rich site and inspiration inputs that ground the design in real-world context.
+
+**Site Context via GIS / Maps:**
+- Import lot boundaries and topography from GIS platforms (ArcGIS, QGIS shapefiles/GeoJSON)
+- Pull site context from Google Maps, Apple Maps, or OpenStreetMap (street layout, neighboring buildings, trees)
+- Auto-detect solar orientation, slope, views, and access points from geospatial data
+- Overlay zoning and setback constraints from municipal GIS feeds where available
+
+**Vision Uploads & Inspiration Linking:**
+- Upload photos of existing homes, interiors, landscapes, or hand sketches — vision AI extracts architectural style cues (roof pitch, material palette, massing, window proportions)
+- Link Pinterest boards, Houzz ideabooks, or Instagram collections — system analyzes pinned images for recurring patterns, colors, and spatial preferences
+- Reference images inform AI generation at each pattern step (e.g., "generate entrance transitions in the style of these pins")
+- Users can tag uploaded images to specific patterns or design elements
+
+### 8. Architectural Output
 
 Final designs export to standard formats:
 
@@ -290,6 +311,8 @@ Simple JSON structure representing the design state:
 | Wholeness | Custom JS | Salingaros formulas |
 | 2D Export | SVG → PDF, DXF | Standard drawing formats |
 | 3D Export | Three.js exporters | glTF, OBJ |
+| Geospatial | Leaflet/Mapbox + GeoJSON | Map display, GIS data import |
+| Vision AI | Claude vision / multimodal | Extract style cues from uploaded photos |
 | Storage | Local files (JSON) | Agent-native pattern |
 
 ---
@@ -331,6 +354,18 @@ Simple JSON structure representing the design state:
 - Differentiate from generic plans
 
 **Quote:** "I'm tired of building the same house over and over. But custom design is too expensive for my margins."
+
+### Quaternary: The Neighborhood Planner
+
+**Profile:** Community developer, land trust, or municipal planner designing multi-home developments or infill neighborhoods. Needs coherent design across multiple lots.
+
+**Needs:**
+- Design 10-200+ homes that feel like a neighborhood, not a subdivision
+- Import real-world site data from GIS/maps to work with actual terrain and context
+- Ensure pattern-language coherence at the neighborhood scale (shared spaces, walkability, strong centers)
+- Generate varied yet harmonious home designs across the development
+
+**Quote:** "Every subdivision looks the same because we copy-paste one plan. I want each home to be different but the whole thing to feel like a place."
 
 ---
 
@@ -386,6 +421,13 @@ Simple JSON structure representing the design state:
 - Performance optimization
 - User testing and refinement
 
+### Phase 5: Neighborhood Expansion
+- **Neighborhood-scale design:** Extend the pattern language to Alexander's larger-scale patterns (#1–#94), enabling design of clusters, streets, and neighborhoods—not just individual homes
+- **GIS & geospatial integration:** Import site context from GIS systems (ArcGIS, QGIS), Google Maps, Apple Maps, OpenStreetMap, or other world-view platforms to understand surrounding terrain, zoning, infrastructure, and solar exposure
+- **Multi-parcel planning:** Design multiple homes as a cohesive neighborhood with shared spaces, walkways, and communal centers—each scored for collective wholeness
+- **Contextual fitting:** Use satellite/aerial imagery and street-level data to ensure new designs harmonize with existing built environment (setbacks, massing, style vocabulary)
+- **Developer/community tools:** Support spec-home developers and planned communities designing 10-200+ units with pattern-language coherence at the neighborhood scale
+
 ### Future Considerations
 - VR integration (WebXR)
 - Multi-unit / site planning
@@ -415,6 +457,9 @@ Simple JSON structure representing the design state:
 3. **Pattern licensing:** Alexander's patterns are published—any IP concerns?
 4. **Localization:** How to handle regional building codes, styles, materials?
 5. **Liability:** Disclaimers around construction use of outputs?
+6. **GIS data sources:** Which municipal/public GIS feeds to integrate first? How to handle varying data quality?
+7. **Pinterest/Houzz API access:** Terms of service for scraping or linking inspiration platforms?
+8. **Neighborhood scale:** At what project size does the tool need multi-user collaboration features?
 
 ---
 

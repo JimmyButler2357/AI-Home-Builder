@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:bitbucket.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:homemaker-addon.readthedocs.io)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(gh api:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(python:*)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" status)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" log --oneline -5)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" fetch origin)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" checkout -b main origin/main)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" branch -D master)",
+      "Bash(git -C \"c:\\\\Projects\\\\HomeMaker\" diff origin/main)",
+      "WebFetch(domain:blog.google)",
+      "WebFetch(domain:x.com)",
+      "WebFetch(domain:blog.sinatras.dev)",
+      "WebFetch(domain:www.aitmpl.com)",
+      "WebFetch(domain:walker-data.com)",
+      "WebSearch",
+      "WebFetch(domain:deepmind.google)",
+      "WebFetch(domain:www.business-standard.com)",
+      "WebFetch(domain:carla.readthedocs.io)",
+      "WebFetch(domain:nitter.net)",
+      "WebFetch(domain:winbuzzer.com)",
+      "WebFetch(domain:curateclick.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:docs.finch3d.com)",
+      "WebFetch(domain:www.futurepedia.io)",
+      "WebFetch(domain:www.archdaily.com)"
+    ]
+  }
+}

@@ -26,6 +26,10 @@
 15. [Research Areas](#15-research-areas)
 16. [Risks & Mitigations](#16-risks--mitigations)
 17. [Key Resources & References](#17-key-resources--references)
+18. [Competitor Analysis](#18-competitor-analysis)
+19. [Potential Technologies & Tools](#19-potential-technologies--tools)
+20. [Adjacent Product Concepts](#20-adjacent-product-concepts)
+21. [Buildable Sub-Projects (Stepping Stones)](#21-buildable-sub-projects-stepping-stones)
 
 ---
 
@@ -608,6 +612,41 @@ Score real estate listings on architectural wholeness. Paste a listing URL → s
 
 ### Semantic Model Schema (Draft)
 
+### Relationship Graph Layer
+
+The semantic model includes a relationship graph that precedes and informs the geometric representation. This reflects Alexander's design process: relationships and boundaries are defined before coordinates.
+
+The graph captures topology (what connects to what) and Alexandrian qualities (how spaces relate):
+
+```json
+{
+  "relationships": {
+    "nodes": [
+      {"id": "living", "function": "living", "size_preference": "large", "center_strength": "primary"},
+      {"id": "kitchen", "function": "cooking", "size_preference": "medium"},
+      {"id": "garden", "function": "outdoor", "boundary_type": "permeable"}
+    ],
+    "edges": [
+      {"from": "kitchen", "to": "living", "connection": "open", "boundary_quality": "gradient"},
+      {"from": "kitchen", "to": "garden", "connection": "visual+physical", "boundary_quality": "threshold"},
+      {"from": "living", "to": "garden", "connection": "visual", "boundary_quality": "framed_view"}
+    ]
+  }
+}
+```
+
+**Edge properties carry Alexandrian meaning:**
+- `connection`: "open" (no wall), "door", "visual" (window/opening), "visual+physical" (glass door, archway)
+- `boundary_quality`: "gradient" (smooth transition, open plan), "threshold" (distinct crossing point), "framed_view" (visual connection through defined opening)
+
+**The unfolding process reframed:**
+1. Define centers (rooms/spaces as graph nodes with qualities)
+2. Define relationships (edges with boundary types)
+3. Resolve topology into geometry (layout algorithm produces coordinates)
+4. Refine geometry (adjust sizes, proportions, openings)
+
+The geometric JSON schema below represents the output of step 3-4. The relationship graph represents steps 1-2.
+
 ```json
 {
   "version": "0.1",
@@ -1039,6 +1078,183 @@ Default for self-builders: Standard. Default for architects: Expert.
 - Pattern Language Network
 - Salingaros's academic network
 - New Traditional Architecture communities
+
+---
+
+## 18. Competitor Analysis
+
+> **Purpose:** Internal reference for understanding the competitive landscape. No competitor has an explicit theory of architectural quality — this is HomeMaker's moat.
+
+### Direct Competitors (Same User, Similar Problem)
+
+#### Maket AI — maket.ai
+- **What:** AI floor plan generator for homeowners. $30/month.
+- **Approach:** Likely GAN/statistical ML trained on floor plan datasets. Black-box generation.
+- **Strengths:** Low price, accessible to non-architects, fast generation, regulatory assistant feature.
+- **Weaknesses:** Output quality is widely criticized (garages in living rooms, rooms with no doors, nonsensical layouts). No theory of quality — pure statistical pattern matching. Limited export options.
+- **Key lesson for HomeMaker:** Proves market demand exists (people want AI-generated residential floor plans). Also proves quality matters — users are deeply unhappy with nonsensical output. HomeMaker's quality-first approach directly addresses Maket's biggest weakness.
+- **Overlap:** Same target market, similar price point. HomeMaker differentiates entirely on quality.
+
+### Adjacent Competitors (Different User or Scale)
+
+#### Finch3D — finch3d.com
+- **What:** AI-powered floor plan optimizer for architects. €49-12,000/year.
+- **Approach:** Patented graph-based representation (rooms=nodes, adjacencies=edges) + constraint optimization + AI algorithms. Not pure neural network.
+- **Strengths:** Graph representation is architecturally sound. Real-time daylight/CO2/compliance feedback. Deep Rhino/Revit integration. Adaptive Plan Library lets firms use their own past designs as templates.
+- **Weaknesses:** Narrow focus on multi-family residential only. Enterprise tier waitlist-gated. Small team (~10). Requires a 3D massing model as input.
+- **Key lesson for HomeMaker:** The graph representation (rooms as nodes, adjacencies as edges) is a smart intermediate format the LLM can reason about. Consider adding a graph layer to the semantic JSON model.
+
+#### Snaptrude — snaptrude.com
+- **What:** AI concept-to-BIM platform for architects. $60-100/month.
+- **Approach:** Multi-agent AI system — a master orchestrator coordinates specialized agents (Envelope Agent, Program Packing Agent, etc.). Uses LLMs + physics models + custom models. Dual-AI validation (generator + critic).
+- **Strengths:** Most technically sophisticated competitor. Text-to-BIM in 7-10 minutes. Climate-aware, code-compliant. Cloud-native collaboration. Everything is editable.
+- **Weaknesses:** Early (AI v1, Oct 2025). Weak in late-stage BIM. Targets commercial architecture, not residential consumers.
+- **Key lesson for HomeMaker:** The multi-agent orchestrator pattern is worth studying. HomeMaker's Phase 4 unfolding sequence could use a similar agent-per-scale approach. Their dual-AI validation (generate + critique) parallels HomeMaker's "AI proposes, math scores" philosophy.
+
+#### Higharc — higharc.com
+- **What:** "The Homebuilding Cloud" — end-to-end platform for production homebuilders. ~$300K/year avg contract.
+- **Approach:** Custom geometry kernel built from scratch (mesh + solids). "Intelligent building model" — one parameterized model encodes ALL option variations. Rules engine with 1,000+ configurable settings. AI (AutoLayout) converts sketches/brochures to 3D models.
+- **Strengths:** Vertical integration (design through sales through construction docs). Browser-based custom CAD. Single source of truth. Deep industry backing ($83M raised, Home Depot, former Autodesk CEO as investors). Founded by ex-Autodesk engineers.
+- **Weaknesses:** Enterprise-only ($300K/year). Production homes only (standardized, not custom). No IFC export. No roof truss design or plumbing. US market only.
+- **Key lesson for HomeMaker:** (1) "One model, everything generated" is the right principle — semantic JSON should be the single source of truth. (2) Rules-based validation works at scale (1,000+ rules). (3) Browser-based 3D design tools are commercially viable. (4) The consumer market below Higharc's price point is wide open — that's HomeMaker's lane. (5) TypeScript + React + PostgreSQL is a proven stack.
+
+#### TestFit — testfit.io
+- **What:** Real estate site feasibility platform. ~$8,000/year.
+- **Approach:** Rule-based constraint solver (NOT machine learning). 3,000 layouts in 3 seconds. Site planning and massing.
+- **Strengths:** Extremely fast. Proven with major firms (6,200+ users). Results are predictable and explainable.
+- **Weaknesses:** Not AI in the ML sense. No aesthetic judgment. Site planning only — no interiors.
+- **Key lesson for HomeMaker:** Constraint solving without ML can be fast and effective. The Validity Checker could use similar approaches.
+
+#### Archistar — archistar.ai
+- **What:** AI property development platform (Australia). Enterprise pricing.
+- **Approach:** Generative design + automatic building code compliance checking. Site analysis from 25,000+ data sources.
+- **Strengths:** Automated compliance checking used by 25+ municipal governments. Integrated with Autodesk Forma.
+- **Key lesson for HomeMaker:** Automated compliance checking is commercially viable. Consider adding basic code compliance to the Validity Checker in a future phase.
+
+#### Autodesk Forma (ex-Spacemaker)
+- **What:** AI urban design platform. Acquired by Autodesk for $240M.
+- **Approach:** AI generates building layout variants + ML-powered environmental simulations (sun, wind, noise, daylight — over 100 criteria). Near-instant analysis vs hours for traditional simulation.
+- **Key lesson for HomeMaker:** Real-time environmental analysis (sunlight, wind) using ML approximations is valuable even at single-home scale. Future feature opportunity.
+
+### Research Projects (Not Products, Technically Relevant)
+
+#### MCP4IFC — github.com/Show2Instruct/ifc-bonsai-mcp
+- **What:** Open-source framework (MIT) that lets LLMs create/edit IFC building models via MCP. Published Oct 2025.
+- **Architecture:** LLM → MCP Server → Blender Addon (IfcOpenShell + Bonsai) → IFC file. 50+ tools across 3 tiers.
+- **Results:** 92.6% accuracy on direct queries, 100% on code-based editing, 73% on visual reasoning, 43.8% on aggregation queries.
+- **Limitations:** Incomplete IFC semantics, weak spatial reasoning, 40K token overhead for tool descriptions, not construction-ready.
+- **Key lesson for HomeMaker:** Validates the command-agent approach. Your command vocabulary matches their tool list almost exactly. Consider (a) visual screenshot feedback loop, (b) IFC as future output format, (c) tiered tool architecture to manage context overhead.
+
+#### SceneCraft (ICML 2024)
+- **What:** LLM agent that synthesizes 3D scenes in Blender from text via scene graphs + constraint optimization + visual feedback.
+- **Key lesson:** The scene graph (nodes=objects, edges=spatial relationships) + constraint-based layout optimization pattern is directly applicable to room layout generation.
+
+#### 3D-GPT (arXiv 2023)
+- **What:** Multi-agent framework — Task Dispatch Agent + Conceptualization Agent + Modeling Agent — that generates Blender code.
+- **Key lesson:** Breaking the LLM's job into specialized agents improves results. HomeMaker could use scale-specific agents for the unfolding sequence.
+
+#### BlenderLLM (arXiv 2024)
+- **What:** Fine-tuned 7B model that writes Blender Python CAD scripts. Self-improvement training loop (generate → render → judge → retrain).
+- **Key lesson:** A small specialized model trained on architectural scripts could eventually replace expensive API calls for command generation. Long-term cost optimization strategy.
+
+#### WrongNebula Voxel-to-Blender Pipeline (Feb 2026)
+- **What:** Developer-built pipeline: custom voxel editor → OpenAI Codex for detailing → Blender MCP for final reconstruction. Creates neighborhood-scale architectural scenes.
+- **Key lesson:** Voxel/block intermediate representation solves the "text LLM + 3D problem." The LLM reasons about grid data (text-friendly), and a deterministic system converts to 3D. Aligns with HomeMaker's progressive fidelity concept — early massing steps could use voxel-like blocks.
+
+### Competitive Position Summary
+
+```
+                    CONSUMER ←———————————————→ PROFESSIONAL
+                        |                            |
+QUALITY/              Maket AI                   Finch3D
+DESIGN               (poor quality,              (good quality,
+FOCUSED               $30/mo)                     €12K/yr)
+    |                     |                          |
+    |              ★ HOMEMAKER ★                 Snaptrude
+    |              (quality-scored,              (fast concept,
+    |               $29/mo planned)               $60-100/mo)
+    |                     |                          |
+PRODUCTION/          [OPEN GAP]                  Higharc
+CONSTRUCTION         no one serves              ($300K/yr,
+FOCUSED              individuals                 production)
+                        |                            |
+                    TestFit                      Archistar
+                    ($8K/yr)                     (enterprise)
+```
+
+**No competitor has an explicit, mathematical theory of architectural quality.** This is HomeMaker's unique value proposition.
+
+---
+
+## 19. Potential Technologies & Tools
+
+> **Purpose:** Reference list of technologies discovered during research that could support or integrate with HomeMaker.
+
+### 3D Representation Methods Considered
+
+| Method | What It Is | HomeMaker Relevance |
+|--------|-----------|-------------------|
+| **Semantic JSON (current plan)** | Rooms, walls, openings as structured data with meaning | Primary representation. LLM-friendly, scoring-compatible. |
+| **Voxels** | 3D grid of filled/empty cubes (Minecraft-style) | Potential intermediate format for early massing steps (Steps 1-3). Very LLM-friendly. |
+| **CSG (Constructive Solid Geometry)** | Boolean operations on primitives (union, subtract, intersect) | Already in PRD for window/door cutouts. Good fit for LLM generation. |
+| **Scene Graphs** | Tree structure of nodes with parent-child relationships | PRD's semantic model IS a scene graph. Aligns with SceneCraft's approach. |
+| **Polygon Meshes** | Triangles/faces — universal 3D format | Three.js output format. Not for LLM generation, but for rendering. |
+| **BIM/IFC** | Industry-standard building information model with full properties | Future export format. MCP4IFC shows LLMs can work with IFC via tools. |
+| **Parametric** | Rules + parameters that generate geometry | Consider for future "design variants" — change parameters, regenerate. |
+| **B-Rep** | Mathematically precise surfaces (what CAD uses) | Not needed for current scope. Would need if doing construction documents. |
+| **SDFs/NeRF/Gaussian Splatting** | Neural/implicit 3D representations | Not relevant for design generation. Possibly relevant for visualization in far future. |
+
+### Tools & Frameworks Worth Evaluating
+
+#### For 3D Rendering (Phase 3)
+- **React Three Fiber + @react-three/drei** — Current plan. Proven for browser 3D + React.
+- **3D Web Experience Skill** — A Claude Code skill file ([GitHub](https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/3d-web-experience)) that provides expert guidance on Three.js, R3F, WebGL optimization, model pipelines. Can be installed into Claude Code to assist development.
+- **three-csg-ts** — TypeScript CSG library for Three.js. For boolean operations (window/door cutouts in walls).
+- **gltf-transform** — CLI tool for compressing 3D models (Draco geometry + WebP textures). Target <5MB per model.
+
+#### For AI-Assisted 3D Generation
+- **Blender MCP** — ([GitHub](https://github.com/ahujasid/blender-mcp)) Lets Claude control Blender via MCP. Potential for high-fidelity export pipeline (Phase 4+).
+- **MCP4IFC / IfcOpenShell + Bonsai** — Open-source IFC creation/editing via MCP. Potential for industry-standard BIM export.
+- **Gemini 3 Deep Think** — Google's reasoning mode with sketch-to-3D capability. The Aletheia framework (generate→verify→revise) parallels HomeMaker's propose→score→select loop.
+
+#### For Image-to-Plan Extraction (Phase 1 V2)
+- **Claude Vision API** — Current plan for floor plan image analysis.
+- **GeoSAM** — R package using Meta's SAM3 for segmenting objects in satellite/aerial imagery. Could support site analysis and the "Not-Separateness" property by analyzing building context.
+
+#### For Scoring & Validation
+- **No off-the-shelf tools exist.** The Salingaros scoring engine must be built from scratch. This is the product's core IP.
+
+### Geometry Kernel: Does HomeMaker Need One?
+
+**No — not for the current scope.** A geometry kernel (like Parasolid, Open CASCADE, or Higharc's custom kernel) provides mathematically exact B-Rep geometry for construction-document-quality precision. HomeMaker's semantic JSON model + Three.js rendering + Python validation is sufficient for schematic design and visualization.
+
+**When it might be needed:** If HomeMaker ever generates permit-ready construction documents, supports curved walls, or exports to professional CAD formats (IFC/DWG) with full precision. At that point, consider **OpenGeometry** (a Rust/WebAssembly CAD kernel designed for the web) rather than building one from scratch.
+
+**The trade-off:** Three.js is a rendering library (draws things on screen). A geometry kernel is a mathematical engine (understands what shapes ARE). HomeMaker's semantic model acts as a lightweight, domain-specific kernel — it knows a wall is a wall, what its dimensions are, and how it relates to other elements. Combined with mesh CSG for visual operations and Python for validation math, this is sufficient.
+
+### Hybrid Representation Strategy (Recommended)
+
+Based on competitive analysis and technical research, consider a **progressive representation** matching the unfolding sequence:
+
+| Unfolding Step | Scale | Recommended Representation | Why |
+|---|---|---|---|
+| 1-2 | Site, Building Mass | Voxel/block grid | Simplest for LLM spatial reasoning. Easy to score massing properties. |
+| 3 | Wings & Zones | Voxel → semantic transition | Blocks gain room names and functions. |
+| 4-5 | Rooms, Circulation | Semantic JSON commands | Meaning matters now (room function, door placement, connectivity). |
+| 6-7 | Openings, Details | Semantic JSON + CSG | Precise dimensions for windows/doors. Boolean ops for cutouts. |
+| Export | — | IFC (future) | Industry-standard BIM for construction workflows. |
+
+---
+
+## 20. Sub-Projects & Spinoffs
+
+Adjacent product concepts, buildable sub-projects, and stepping stones are documented in detail in the [sub-projects directory](sub-projects/README.md). Each idea has its own file for eventual migration to a standalone project repository.
+
+See the [sub-projects README](sub-projects/README.md) for:
+- Prioritized build order
+- Mapping of sub-projects to HomeMaker components
+- Two-track development strategy (Theory & Scoring vs. Building with Code)
+- Decision framework for what to build when
 
 ---
 

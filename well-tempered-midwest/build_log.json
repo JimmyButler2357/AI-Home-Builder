@@ -1,0 +1,94 @@
+{
+  "output": "the-well-tempered-midwest.docx",
+  "figures_total": 14,
+  "embedded": 2,
+  "failed": 12,
+  "prose_byte_identical": true,
+  "min_source_width_enforced": 800,
+  "rows": [
+    {
+      "n": 1,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 2,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 3,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 4,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 5,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 6,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 7,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 8,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 9,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 10,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 11,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    },
+    {
+      "n": 12,
+      "status": "embedded",
+      "width": "1880px",
+      "detail": "Diagram prepared for this document"
+    },
+    {
+      "n": 13,
+      "status": "embedded",
+      "width": "1880px",
+      "detail": "Diagram prepared for this document"
+    },
+    {
+      "n": 14,
+      "status": "FAILED",
+      "width": "-",
+      "detail": "network policy denied Wikimedia Commons \u2014 the session egress proxy returned 403 Forbidden for commons.wikimedia.org"
+    }
+  ]
+}

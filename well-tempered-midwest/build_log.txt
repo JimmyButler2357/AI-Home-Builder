@@ -1,0 +1,18 @@
+Build log — The Well-Tempered Midwest (illustrated)
+============================================================
+Embedded: 2/14   Failed: 12   Prose byte-identical: True
+
+  Fig  1: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  2: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  3: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  4: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  5: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  6: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  7: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  8: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig  9: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig 10: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig 11: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org
+  Fig 12: embedded  1880px   Diagram prepared for this document
+  Fig 13: embedded  1880px   Diagram prepared for this document
+  Fig 14: FAILED    -        network policy denied Wikimedia Commons — the session egress proxy returned 403 Forbidden for commons.wikimedia.org

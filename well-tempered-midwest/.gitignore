@@ -1,0 +1,5 @@
+proof/
+__pycache__/
+*.pyc
+.config/
+.cache/

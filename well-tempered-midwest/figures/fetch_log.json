@@ -1,0 +1,62 @@
+{
+  "1": {
+    "status": "error",
+    "query": "Monadnock Building Chicago",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Monadnock+Building+Chicago&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "2": {
+    "status": "error",
+    "query": "Monadnock Building entrance",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Monadnock+Building+entrance&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "3": {
+    "status": "error",
+    "query": "Rookery Building Chicago light court",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Rookery+Building+Chicago+light+court&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "4": {
+    "status": "error",
+    "query": "Larkin Administration Building",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Larkin+Administration+Building&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "5": {
+    "status": "error",
+    "query": "Larkin Building interior",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Larkin+Building+interior&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "6": {
+    "status": "error",
+    "query": "Unity Temple Oak Park interior",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Unity+Temple+Oak+Park+interior&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "7": {
+    "status": "error",
+    "query": "2226 Lustenau Baumschlager Eberle",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=2226+Lustenau+Baumschlager+Eberle&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "8": {
+    "status": "error",
+    "query": "2226 Lustenau window",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=2226+Lustenau+window&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "9": {
+    "status": "error",
+    "query": "Eastgate Centre Harare",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=Eastgate+Centre+Harare&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "10": {
+    "status": "error",
+    "query": "hypocaust",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=hypocaust&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "11": {
+    "status": "error",
+    "query": "badgir Iran",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=badgir+Iran&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  },
+  "14": {
+    "status": "error",
+    "query": "underfloor heating pipes installation",
+    "reason": "ProxyError: HTTPSConnectionPool(host='commons.wikimedia.org', port=443): Max retries exceeded with url: /w/api.php?action=query&generator=search&gsrsearch=underfloor+heating+pipes+installation&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata%7Cmime&iiurlwidth=1600&format=json (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+  }
+}

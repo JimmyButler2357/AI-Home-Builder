@@ -49,14 +49,22 @@ for any it can't find.
 
 The pipeline is complete — only the image bytes are missing. Any of:
 
-1. **Run `commons_fetch.py` where Wikimedia is reachable** (or re-create this
-   environment with a network policy that allows `*.wikimedia.org`), then
-   re-run `build.py`. The 12 photos will download (≥800px enforced),
-   attribution lines are generated automatically from Commons license
-   metadata, and the placeholders become real figures. No other change needed.
+1. **Re-run with network (turnkey).** Start a session on this repo/branch in
+   an environment whose network policy permits `*.wikimedia.org` (Claude Code
+   on the web → an environment with "No network restrictions", or a custom
+   allowlist including `wikimedia.org`), then:
+
+   ```bash
+   bash well-tempered-midwest/finish.sh
+   ```
+
+   That runs `schematics.py` + `commons_fetch.py` + `build.py`. The 12 photos
+   download (≥800px enforced), attribution lines are generated automatically
+   from Commons license metadata, and every placeholder becomes a real figure.
+   Nothing else changes.
 2. **Drop images into `figures/`** as `fig01.jpg … fig14.jpg` and add matching
    rows to `figures/attributions.json` (`path`, `caption`, `attribution`),
-   then re-run `build.py`.
+   then re-run `python build.py`.
 
 Prose is never touched by any of this — `build.py` fails the build if the
 essay text is not preserved exactly.

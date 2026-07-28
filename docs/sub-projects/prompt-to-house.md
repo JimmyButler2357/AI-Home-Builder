@@ -273,6 +273,7 @@ These map to the PRD's Phase 2 targets:
 - How large can the building state summary be before it degrades the LLM's command quality?
 - Is one-command-at-a-time the right granularity, or should the LLM generate batches of related commands (all exterior walls, then all interior walls)?
 - Does few-shot prompting with example command sequences significantly improve validity rates?
+- **Retrieval experiment:** does grounding the agent in a corpus of *validated* plan fragments beat pure generation? Build a small library of known-good command sequences (a clean 3-bedroom layout, an L-shaped kitchen-dining connection, a bathroom cluster), retrieve the most relevant fragments for the prompt, and inject them as few-shot examples. The mid-2026 CAD consensus (Leo AI) is that retrieval of validated components outperforms generation for accountable output — and Alexander's patterns are pre-validated solutions in exactly this sense. Measure validity rate with retrieval on vs. off; if it moves the >70% target, the corpus becomes a Phase 4 asset.
 - Which Claude model performs best? Does Opus produce better spatial reasoning than Sonnet? Is the quality difference worth the cost and latency for a research prototype?
 
 ### Validation

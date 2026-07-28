@@ -1142,6 +1142,15 @@ Default for self-builders: Standard. Default for architects: Expert.
 - **Approach:** AI generates building layout variants + ML-powered environmental simulations (sun, wind, noise, daylight — over 100 criteria). Near-instant analysis vs hours for traditional simulation.
 - **Key lesson for HomeMaker:** Real-time environmental analysis (sunlight, wind) using ML approximations is valuable even at single-home scale. Future feature opportunity.
 
+### Watchlist: BIM 2.0 & Incumbent AI (added 2026-07)
+
+Two developments to track, neither competing for HomeMaker's consumer today:
+
+- **The "BIM 2.0" cohort — Arcol, Qonic, Hypar, Motif** (plus Snaptrude, covered above). Browser-native, AI-first challengers to Revit, covered seriously by AEC Magazine. All target professional architects. The risk to HomeMaker is not head-to-head competition but one of them adding a consumer/self-builder tier — the most plausible path to the "no one serves individuals" gap being filled by someone else. Watch for down-market moves.
+- **Revit 2027 ships MCP + an AI Assistant** (April 2026). The incumbent is embedding the same interface pattern (MCP tool calls against a building model) that HomeMaker's Phase 2 command agent uses. This validates the architecture and confirms Autodesk's strategy is retention-by-embedding rather than a consumer play. Revit's moat remains ecosystem + retraining cost, not features — irrelevant to HomeMaker's lane unless Autodesk launches a consumer product.
+
+The wider mid-2026 consensus (text-to-cad, Zoo.dev, Leo AI's production-gap critique) is that AI collapses first-draft and visualization while judgment, constraints, and code compliance stay human. No player in either group has a transparent quality-scoring layer between AI proposal and human decision — HomeMaker's moat continues to be confirmed by omission.
+
 ### Research Projects (Not Products, Technically Relevant)
 
 #### MCP4IFC — github.com/Show2Instruct/ifc-bonsai-mcp
@@ -1213,7 +1222,7 @@ FOCUSED              individuals                 production)
 | **BIM/IFC** | Industry-standard building information model with full properties | Future export format. MCP4IFC shows LLMs can work with IFC via tools. |
 | **Parametric** | Rules + parameters that generate geometry | Consider for future "design variants" — change parameters, regenerate. |
 | **B-Rep** | Mathematically precise surfaces (what CAD uses) | Not needed for current scope. Would need if doing construction documents. |
-| **SDFs/NeRF/Gaussian Splatting** | Neural/implicit 3D representations | Not relevant for design generation. Possibly relevant for visualization in far future. |
+| **SDFs/NeRF/Gaussian Splatting** | Neural/implicit 3D representations | Not for the semantic model (geometry without semantics — nothing to score or validate). But splatting is now a standardized, browser-deliverable capture pipeline (OpenUSD-ratified 2026, phone-playable via PlayCanvas-class viewers). Future fits: capturing the existing house for WholenessReno, and site context for Not-Separateness. |
 
 ### Tools & Frameworks Worth Evaluating
 
@@ -1227,6 +1236,10 @@ FOCUSED              individuals                 production)
 - **Blender MCP** — ([GitHub](https://github.com/ahujasid/blender-mcp)) Lets Claude control Blender via MCP. Potential for high-fidelity export pipeline (Phase 4+).
 - **MCP4IFC / IfcOpenShell + Bonsai** — Open-source IFC creation/editing via MCP. Potential for industry-standard BIM export.
 - **Gemini 3 Deep Think** — Google's reasoning mode with sketch-to-3D capability. The Aletheia framework (generate→verify→revise) parallels HomeMaker's propose→score→select loop.
+- **Meta SAM 3D / Meshy / Tripo** — Single-image-to-3D and text-to-asset generators, production-quality for props (Meshy: quality + auto-rig; Tripo: speed + quad topology). Relevant only for the "Detailed" fidelity level — furniture, vegetation, context objects — never for building geometry, which must stay semantic.
+- **text-to-cad** — ([GitHub](https://github.com/earthtojake/text-to-cad)) ~11k stars. Notable less for the CAD output (mesh-first, draft-quality) than for its packaging: it's a collection of local agent skills (Claude Code plugins) over build123d/OpenCascade rather than an app. A possible future distribution pattern for HomeMaker's command vocabulary.
+
+> **Design principle confirmed by the mid-2026 CAD landscape (Leo AI, Zoo.dev):** the near-term win in AI-assisted design is *retrieval of validated components* over pure generation. HomeMaker's analog: the Phase 2 agent should draw on a curated corpus of validated plan fragments and command sequences (Alexander's patterns are pre-validated solutions in exactly this sense) rather than generating every configuration from scratch. See the retrieval experiment in the PromptToHouse sub-project doc.
 
 #### For Image-to-Plan Extraction (Phase 1 V2)
 - **Claude Vision API** — Current plan for floor plan image analysis.

@@ -141,6 +141,19 @@ The interface has two panels:
 | LLM | Claude API (streaming) | Stream tokens for real-time command display |
 | State | In-memory (Python) | No persistence needed for research prototype |
 
+### Visual Self-Correction Pass (Stretch Goal)
+
+The validity checker catches rule-expressible failures, but a plan can pass every rule and still be visibly wrong — awkward proportions, a "reading nook" in a windowless interior corner, a kitchen nowhere near the garden it was supposed to open onto. A vision-in-the-loop pass closes this gap:
+
+1. After the LLM signals DONE, render the current building state to an image (the 2D SVG renderer already produces this — just rasterize it)
+2. Feed the image back to the LLM with the original prompt: "Does this plan match the request? List specific problems."
+3. Let the LLM issue modification commands (`move_wall`, `subdivide_room`) to fix what it sees, re-validating each as usual
+4. Cap at 2-3 correction rounds to avoid endless fiddling
+
+This pattern is validated in the wild — MCP4IFC recommends a screenshot feedback loop, and agentic Blender workflows (Kimi K3 + BlenderMCP, July 2026) demonstrate build → render → inspect → fix working in practice. Two cautions: MCP4IFC measured only 73% accuracy on visual reasoning, so treat this as a sanity filter layered on the geometric validator, not a replacement; and measure coherence scores with the pass on vs. off — if it doesn't move the 1-5 coherence rating, it isn't worth the extra API calls.
+
+This also adds a research dimension: does the LLM catch its own spatial mistakes better by *looking* at the plan than by reading the state summary? If yes, that reshapes how Phase 4's orchestrator should work.
+
 ### Streaming Implementation
 
 Use Claude's streaming API to display commands as they are generated, not after. The user sees the LLM "thinking" -- tokens appearing in the command log -- before the command is complete. Once a full command is parsed, it is sent to the validator. This creates the live, watching-it-happen experience.

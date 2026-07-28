@@ -303,6 +303,12 @@ Rules applied after each command:
 - Building code compliance (egress, accessibility)
 - MEP feasibility (plumbing stack proximity, etc.)
 
+### Visual Feedback Loop (V2)
+
+The validity checker catches what can be expressed as rules (intersections, closure, reachability), but it cannot catch plans that are valid yet visibly wrong — a kitchen that reads as a corridor, a window wall facing the neighbor's garage, rooms that ignore the stated intent. A **vision-in-the-loop** pass addresses this: after generating a candidate, render it cheaply (2D SVG plan or block-level 3D screenshot — no external renderer needed), feed the image back to the LLM, and let it self-correct before the option is scored and shown to the user.
+
+This pattern is now well validated in the wild: MCP4IFC recommends it explicitly, and agentic Blender workflows (e.g., Kimi K3 + BlenderMCP, July 2026) demonstrate the build → render → inspect → fix loop working in practice. Calibration note: MCP4IFC measured only 73% accuracy on visual reasoning tasks, so the visual pass is a sanity filter layered on top of the geometric validity gate, not a replacement for it.
+
 ### Test Protocol
 
 1. Define 10 residential design prompts ranging from simple to complex:
@@ -1160,6 +1166,11 @@ Default for self-builders: Standard. Default for architects: Expert.
 #### WrongNebula Voxel-to-Blender Pipeline (Feb 2026)
 - **What:** Developer-built pipeline: custom voxel editor → OpenAI Codex for detailing → Blender MCP for final reconstruction. Creates neighborhood-scale architectural scenes.
 - **Key lesson:** Voxel/block intermediate representation solves the "text LLM + 3D problem." The LLM reasons about grid data (text-friendly), and a deterministic system converts to 3D. Aligns with HomeMaker's progressive fidelity concept — early massing steps could use voxel-like blocks.
+
+#### Kimi K3 + BlenderMCP Agentic Workflow (July 2026)
+- **What:** Widely-shared demonstration (x.com/irinatoxi) of Kimi K3 driving Blender through MCP: the agent builds a blockout scene via generated Python, renders/screenshots it, inspects the result visually, and iterates on the same scene — "vision in the loop."
+- **Key lessons:** (1) Validates the render → inspect → fix loop for HomeMaker's Phase 2 visual feedback pass. (2) Confirms the "crude blockout first, iterate" workflow matching HomeMaker's progressive fidelity levels. (3) The author's own conclusion — the agent executes but "still does not have taste" — lands exactly on HomeMaker's AI-proposes / human-decides split, minus HomeMaker's mathematical scoring layer, which no workflow like this has.
+- **Anti-lesson:** The demo's generated script (`bpy.ops` primitives, `random.uniform()` sizing, anonymous meshes) produces geometry without semantics — nothing knows it's a wall or a room, so nothing could be scored or validated. This is precisely why HomeMaker's semantic model comes first and rendering is derived. Blender remains a Phase 4+ export/render target, not the working environment.
 
 ### Competitive Position Summary
 

@@ -73,6 +73,22 @@ volume (target 120–200 per category).
   retries are idempotent. Optimistic UI with a persistent retry queue; the
   next pair is prefetched and its images preloaded.
 
+## Live infrastructure
+
+A dedicated Supabase project **more-life** (ref `fgqninmiexfrkjfivgsa`, us-east-1)
+holds the production database. Its `items` table is pre-seeded with ~1,100
+license-cleared Wikimedia Commons candidates (110–204 per category, all with
+attribution + license), currently under human review via the temporary
+`review-gallery` edge function (`supabase/functions/review-gallery/` — remove
+it once curation is done). The app schema was applied as migration
+`init_more_life_schema`, matching `db/migrations/0001_init.sql`, with RLS
+enabled (no policies) so the auto-generated REST API cannot touch research
+data — the app connects to Postgres directly.
+
+To finish launch: cull the seed via the review gallery, then deploy to Vercel
+with `DATABASE_URL` (Supabase pooler string + `DATABASE_NO_PREPARE=1`),
+`APP_SECRET`, and `ADMIN_PASSWORD`.
+
 ## Deploying
 
 1. Create a Postgres database (Supabase/Neon). Run `npm run db:migrate` with

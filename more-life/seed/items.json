@@ -1,0 +1,4 @@
+{
+  "$note": "Curated seed manifest. Populate by running `npm run seed:build` (queries the Wikimedia Commons API using seed/sources.json — requires normal internet access), hand-review the composition per the spec (span cultures/eras, control photographic confounds), then `npm run seed:import -- --verify`. Every entry must carry attribution, source_url, and license; the importer rejects entries that don't.",
+  "items": []
+}

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f7;
+  --surface: #efedea;
+  --foreground: #1c1917;
+  --muted: #78716c;
+  --line: #e3e0db;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, Cambria,
+    "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Quiet, gallery-like chrome: the images are the interface. */
+.prompt {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@keyframes chosen {
+  0% { outline-color: transparent; }
+  30% { outline-color: var(--foreground); }
+  100% { outline-color: transparent; }
+}
+.vote-chosen {
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  animation: chosen 260ms ease-out;
+}

@@ -1,0 +1,72 @@
+{
+  "$note": "Wikimedia Commons source categories per app category, consumed by scripts/build-seed.ts. Aim for range WITHIN each category: vernacular from many cultures, historical and contemporary, humble and celebrated. Add or remove Commons categories freely — the builder skips ones that don't exist. mugs/chairs/textiles should skew toward standardized object photography (the clean control channel).",
+  "facades": [
+    "Facades in Japan",
+    "House facades in Germany",
+    "House facades in Portugal",
+    "Facades in Morocco",
+    "Half-timbered facades",
+    "Art Nouveau facades",
+    "Baroque facades",
+    "Modernist architecture",
+    "Vernacular architecture of India",
+    "Adobe buildings"
+  ],
+  "interiors": [
+    "Living rooms",
+    "Library interiors",
+    "Church interiors",
+    "Mosque interiors",
+    "Japanese-style rooms",
+    "Kitchen interiors",
+    "Cafe interiors",
+    "Interiors of vernacular houses"
+  ],
+  "streets": [
+    "Street scenes",
+    "Alleys",
+    "Town squares",
+    "Market squares",
+    "Arcades (architecture)",
+    "Pedestrian zones",
+    "Streets in Kyoto",
+    "Streets in Fez"
+  ],
+  "mugs": [
+    "Mugs",
+    "Coffee cups",
+    "Teacups",
+    "Teapots",
+    "Chawan",
+    "Ceramic cups",
+    "Stoneware"
+  ],
+  "chairs": [
+    "Chairs",
+    "Windsor chairs",
+    "Rocking chairs",
+    "Armchairs",
+    "Stools",
+    "Chairs in museums"
+  ],
+  "textiles": [
+    "Kilims",
+    "Persian carpets",
+    "Quilts",
+    "Ikat",
+    "Kente cloth",
+    "Navajo textiles",
+    "Woven textiles",
+    "Printed textiles"
+  ],
+  "doors": [
+    "Wooden doors",
+    "Church doors",
+    "Doors in Morocco",
+    "Doors in India",
+    "Garden gates",
+    "Torii",
+    "Medieval doors",
+    "Art Nouveau doors"
+  ]
+}
